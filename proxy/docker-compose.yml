@@ -47,7 +47,7 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.traefik.rule=Host(`proxy.${PUBLIC_HOSTNAME}`)"
       - "traefik.http.routers.traefik.entrypoints=websecure"
-      - "traefik.http.routers.traefik.middlewares=authelia@file"
+      - "traefik.http.routers.traefik.middlewares=authelia"
       - "traefik.http.routers.traefik.tls.certresolver=cloudflare"
       - "traefik.http.routers.traefik.service=api@internal"
 
@@ -73,3 +73,11 @@ services:
       - AUTHELIA_AUTHENTICATION_BACKEND_FILE_WATCH=true
       - AUTHELIA_AUTHENTICATION_BACKEND_FILE_SEARCH_EMAIL=true
       - AUTHELIA_ACCESS_CONTROL_DEFAULT_POLICY=two_factor
+    labels:
+      - 'traefik.enable=true'
+      - 'traefik.http.routers.authelia.rule=Host(`auth.${PUBLIC_HOSTNAME}`)'
+      - 'traefik.http.routers.authelia.entryPoints=websecure'
+      - 'traefik.http.routers.authelia.tls=true'
+      - 'traefik.http.middlewares.authelia.forwardAuth.address=http://authelia:9091/api/verify?rd=https%3A%2F%2Fauth.${PUBLIC_HOSTNAME}%2F'
+      - 'traefik.http.middlewares.authelia.forwardAuth.trustForwardHeader=true'
+      - 'traefik.http.middlewares.authelia.forwardAuth.authResponseHeaders=Remote-User,Remote-Groups,Remote-Name,Remote-Email'
