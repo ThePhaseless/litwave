@@ -22,15 +22,12 @@ services:
       - "--entrypoints.web.http.redirections.entryPoint.scheme=https"
       - "--entrypoints.web.http.redirections.entryPoint.permanent=true"
       - "--global.sendAnonymousUsage=true"
-      - "--providers.file.directory=/config"
-      - "--providers.file.watch=true"
       - "--providers.docker=true"
-      - "--certificatesResolvers.cloudflare.acme.email=${CF_API_EMAIL}"
       - "--certificatesResolvers.cloudflare.acme.storage=/cert/acme.json"
       - "--certificatesResolvers.cloudflare.acme.dnsChallenge.provider=cloudflare"
       - "--certificatesResolvers.cloudflare.acme.dnsChallenge.delayBeforeCheck=0"
     environment:
-      - CF_EMAIL=${CF_API_EMAIL}
+      - CF_EMAIL=${CF_DNS_API_EMAIL}
       - CF_DNS_API_TOKEN=${CF_DNS_API_TOKEN}
       - PUBLIC_HOSTNAME=${PUBLIC_HOSTNAME}
       - HOST_IP=${HOST_IP}
