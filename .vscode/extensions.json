@@ -1,0 +1,9 @@
+{
+    "recommendations": [
+        "mads-hartmann.bash-ide-vscode",
+        "shakram02.bash-beautify",
+        "rogalmic.bash-debug",
+        "foxundermoon.shell-format",
+        "jeff-hykin.better-shellscript-syntax"
+    ]
+}
