@@ -18,7 +18,6 @@ services:
       #   regex = "^(https?://)(.*).example.com/(.*)$"
       #   replacement = "${1}example.com/${2}/${3}"
       #   permanent = true
-      - "--log.level=debug"
       - "--api=true"
       - "--api.dashboard=true"
       - "--api.insecure=true"
