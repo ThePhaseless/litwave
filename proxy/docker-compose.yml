@@ -59,7 +59,7 @@ services:
       - "traefik.http.middlewares.redirect-to-host.redirectRegex.regex=^(https?://)(.*).${PUBLIC_HOSTNAME}/(.*)$$"
       - "traefik.http.middlewares.redirect-to-host.redirectRegex.replacement=$${1}${PUBLIC_HOSTNAME}/$${2}/$${3}"
       - "traefik.http.middlewares.redirect-to-host.redirectRegex.permanent=true"
-      - "traefik.http.routers.litwave.rule=Host(`${PUBLIC_HOSTNAME}`)"
+      - "traefik.http.routers.litwave.rule=HostRegexp(`.*^${PUBLIC_HOSTNAME}$`)"
       - "traefik.http.routers.litwave.entrypoints=websecure"
       - "traefik.http.routers.litwave.middlewares=authelia, redirect-to-host"
       - "traefik.http.routers.litwave.tls.certresolver=cloudflare"
