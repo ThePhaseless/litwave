@@ -33,6 +33,9 @@ if [ "$((current_day % target_day))" -eq 0 ] || [ "$1" == "--force" ]; then
     echo "Removing old $ACME_DIR_HOST/$ACME_FILE on $SSH_HOSTNAME..."
     ssh -t $SSH_USERNAME@$SSH_HOSTNAME "sudo rm -f $ACME_DIR_HOST/$ACME_FILE"
 
+    echo "Changing permissions of $ACME_DIR_HOST to 777..."
+    ssh -t $SSH_USERNAME@$SSH_HOSTNAME "sudo chmod 777 $ACME_DIR_HOST"
+
     echo "Uploading $ACME_FILE to $SSH_HOSTNAME..."
     scp $ACME_DIR_PROXY/$ACME_FILE $SSH_USERNAME@$SSH_HOSTNAME:$ACME_DIR_HOST
 
