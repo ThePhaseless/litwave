@@ -10,7 +10,10 @@ Interstellar is a linux server setup that uses docker-compose to run a number of
 
 ## Environment Variables
 
-Set the following environment variables in a `.env` file in the host/proxy folders of the project. Do not add spaces around the `=` sign.
+Set the following environment variables in a `.env` file in the host/proxy folders of the project.
+
+> [!IMPORTANT]
+> Do not add spaces around the `=` sign.
 
 ### For Proxy
 
