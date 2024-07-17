@@ -2,7 +2,7 @@ name: game-servers
 services:
   ftb-skies-expert:
     container_name: FTBSkiesExpert
-    image: eclipse-temurin:17-jre
+    image: eclipse-temurin:22.0.1_8-jre
     working_dir: /data
     command: ["/data/start.sh"]
     tty: true
