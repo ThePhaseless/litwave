@@ -93,7 +93,7 @@ services:
       - "traefik.http.routers.jellyseerr.middlewares=authelia"
 
   jellyfin:
-    image: linuxserver/jellyfin:10.9.7
+    image: linuxserver/jellyfin:2021.12.16
     container_name: Jellyfin
     environment:
       - TZ=${TIMEZONE}
